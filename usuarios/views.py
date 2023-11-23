@@ -46,6 +46,6 @@ def entrar(request):
         
     return render(request, 'login.html')
 
-@login_required(login_url="usuarios:login")
+#@login_required(login_url="usuarios:login")
 def index(request):
     return render(request, 'index.html')

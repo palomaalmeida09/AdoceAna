@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('tela-de-fundo.jpg') center center fixed; /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem */
+            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed; /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem */
             background-size: cover;
             display: flex;
             justify-content: center;

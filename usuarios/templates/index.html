@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,10 +82,10 @@
         <!-- Sua barra de navegação aqui, se necessário -->
     </nav>
     <section>
-        <img src="logo.jpg" alt="Descrição da imagem">
+        <img src="{%static 'imagens/logo.jpg'%}" alt="Descrição da imagem">
 
         <div class="button-container">
-            <button onclick="location.href='login.html'">Login</button>
+            <button onclick="location.href={%url 'usuarios:login' %}">Login</button>
             <button onclick="location.href='cadastro.html'">Cadastro</button>
         </div>
     </section>
