@@ -1,27 +1,98 @@
 <!DOCTYPE html>
-{% load static %}
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoce Ana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #656A41;
+        }
+
+        header {
+            background-color: #E5D69D;
+            color: #656A41;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #E5D69D;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 1em;
+            text-align: center; /* Adicionado para centralizar o conteúdo */
+        }
+
+        footer {
+            background-color: #E5D69D;
+            color: #656A41;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 1em 0;
+        }
+
+        .button-container button {
+            padding: 0.5em 1em;
+            margin: 0 0.5em;
+            font-size: 1em;
+            cursor: pointer;
+            /* Adicionando cores aos botões */
+            background-color: #E5D69D; /* Verde para o botão Login */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button-container button:hover {
+            background-color: #656A41; /* Alterando a cor quando o botão é hover (passagem do mouse) */
+        }
+
+        .button-container button:nth-child(2) {
+            background-color: #E5D69D; /* Azul para o botão Cadastro */
+        }
+
+        .button-container button:nth-child(2):hover {
+            background-color: #656A41; /* Alterando a cor quando o botão é hover (passagem do mouse) */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Seja bem-vindo à Adoce Ana!</h1>
+        <h1>Bem-vindo(a) a</h1>
     </header>
-    
+
     <nav>
-        <ul>
-            <li><a href="/">Nossos produtos</a></li>
-            <li><a href="/sobre">Sobre nós</a></li>
-            <li><a href="/contato">Contato</a></li>
-        </ul>
+        <!-- Sua barra de navegação aqui, se necessário -->
     </nav>
-    
-    
+    <section>
+        <img src="logo.jpg" alt="Descrição da imagem">
+
+        <div class="button-container">
+            <button onclick="location.href='login.html'">Login</button>
+            <button onclick="location.href='cadastro.html'">Cadastro</button>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; @AdoceAna2023.</p>
+        <p>&copy; 2023, Adoce Ana.</p>
     </footer>
+
 </body>
+
 </html>

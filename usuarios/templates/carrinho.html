@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('tela-de-fundo.jpg') center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #E5D69D;
+            color: #656A41;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .cart-item {
+            background-color: #FFFFFF;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #E5D69D;
+            color: #656A41;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Carrinho de Compras</h1>
+    </header>
+
+    <div class="container">
+        <div class="cart-item">
+            <h3>Produto 1</h3>
+            <p>Descrição do Produto 1.</p>
+            <p>R$ 19,99</p>
+            <button>Remover</button>
+        </div>
+
+        <div class="cart-item">
+            <h3>Produto 2</h3>
+            <p>Descrição do Produto 2.</p>
+            <p>R$ 29,99</p>
+            <button>Remover</button>
+        </div>
+
+        <!-- Adicione mais itens conforme necessário -->
+
+        <div class="total">
+            <h3>Total:</h3>
+            <p>R$ 49,98</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Adoce Ana</p>
+    </footer>
+
+</body>
+</html>
