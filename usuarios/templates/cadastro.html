@@ -72,9 +72,20 @@
 <body>
     <div class="container">
         <h2>Cadastro</h2>
+        {% if messages %}       
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form method="POST" action="#">
+            {% csrf_token %}
             <label for="username">Nome:</label>
             <input type="text" id="username" name="username" required>
+
+            <label for="tel">Telefone:</label>
+            <input type="tel" id="tel" name="tel" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
@@ -89,7 +100,7 @@
         </form>
 
         <div class="login-link">
-            <a href="login.html">Voltar para o Login</a>
+            <a href="{%url 'usuarios:login' %}">Voltar para o Login</a>
         </div>
     </div>
 </body>

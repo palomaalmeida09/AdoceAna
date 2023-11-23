@@ -59,7 +59,17 @@
 <body>
     <div class="container">
         <h2>Login</h2>
-        <form method="POST" action="#">
+        {% if messages %}
+        <hr/>
+        <h1>Avisos:</h1>
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
             <label for="email_or_username">Email ou Nome de Usuário:</label>
             <input type="text" id="email_or_username" name="email_or_username" required>
 
