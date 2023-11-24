@@ -11,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed; /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem */
+            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed; 
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -45,13 +45,15 @@
             box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        input[type="submit"],
+        input[type="button"] {
             background-color: #656A41;
             color: #fff;
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
             background-color: #656A41;
         }
     </style>
@@ -77,6 +79,8 @@
             <input type="password" id="password" name="password" required>
 
             <input type="submit" value="Login">
+            <!--Botão de cadastro-->
+            <input type="button" value="Cadastre-se" onclick="location.href='cadastro.html'">
         </form>
     </div>
 </body>
