@@ -1,4 +1,5 @@
-{%load static%}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed; 
+            background: url("{% static 'imagens/tela-de-fundo.jpg' %}") center center fixed; 
             background-size: cover;
             position: relative;
         }
@@ -30,10 +31,12 @@
             overflow: hidden;
             position: relative;
             z-index: 1; /* Produtos estejam acima do plano de fundo */
+            display: flex;
+            flex-wrap: wrap; /* Permite que os produtos se movam para a próxima linha em telas menores */
+            justify-content: space-around; /* Distribui uniformemente as divs */
         }
 
         .product {
-            float: left;
             width: 30%;
             margin: 2%;
             background-color: #E5D69D;
@@ -41,11 +44,13 @@
             box-sizing: border-box;
             border-radius: 8px;
             box-shadow: 0 0 10px #656A41(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .product img {
             max-width: 100%;
             height: auto;
+            border-radius: 4px; /* Adicionando borda arredondada nas imagens */
         }
 
         .product h3 {
@@ -85,7 +90,7 @@
 
     <div class="container">
         <div class="product">
-            <img src="copudim.jpg" alt="Produto 1">
+            <img src="{% static 'imagens/copudim.jpg' %}" alt="Produto 1">
             <h3>Copudim</h3>
             <p>Combinações que deram certo! Recheio de creme 4 leites, mousse de ninho+pudim.</p>
             <p>R$ 14,00</p>
@@ -93,46 +98,46 @@
         </div>
 
         <div class="product">
-            <img src="tortinha-de-limao.jpg" alt="Produto 2">
+            <img src="{% static 'imagens/tortinha-de-limao.jpg' %}" alt="Produto 2">
             <h3>Tortinha de limão</h3>
-            <p>Ela veio para ficar!Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
+            <p>Ela veio para ficar! Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
             <p>R$ 7,00</p>
             <button>Comprar</button>
         </div>
 
         <div class="product">
-            <img src="tortinha-de-limao.jpg" alt="Produto 3">
-            <h3>Bolo vulção</h3>
-            <p>Ela veio para ficar!Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
-            <p>R$ 7,00</p>
+            <img src="{% static 'imagens/sanduba.jpg' %}" alt="Produto 3">
+            <h3>Sanduba Red Velvet</h3>
+            <p>Esse é sensacional! O bolo perfeito para saborear em família!</p>
+            <p>R$ 12,00</p>
             <button>Comprar</button>
         </div>
 
         <div class="product">
-            <img src="tortinha-de-limao.jpg" alt="Produto 4">
+            <img src="{% static 'imagens/copudim.jpg' %}" alt="Produto 4">
             <h3>Biscoitinhos</h3>
-            <p>Ela veio para ficar!Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
-            <p>R$ 7,00</p>
+            <p>O melhor para seu café da tarde! Biscoitinhos com recheio de ninho e doce de leite.</p>
+            <p>R$ 6,00</p>
             <button>Comprar</button>
         </div>
 
         <div class="product">
-            <img src="tortinha-de-limao.jpg" alt="Produto 5">
+            <img src="{% static 'imagens/brownie.jpg' %}" alt="Produto 5">
             <h3>Brownie</h3>
-            <p>Ela veio para ficar!Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
-            <p>R$ 7,00</p>
+            <p>A novidade do momento! Delicioso brownie com recheios de ninho com nutella e brigadeiro.Garanta o seu! </p>
+            <p>R$ 9,00</p>
             <button>Comprar</button>
         </div>
 
         <div class="product">
-            <img src="tortinha-de-limao.jpg" alt="Produto 6">
+            <img src="{% static 'imagens/chocolatudo.jpg' %}" alt="Produto 6">
             <h3>Chocolatudo</h3>
-            <p>Ela veio para ficar!Mousse de limão, farofinha de biscoito maisena, chantilly.</p>
+            <p>Esse é o preferido da criançada! Massa de chocolate e recheio de chocolate 50% cacau.</p>
             <p>R$ 7,00</p>
             <button>Comprar</button>
         </div>
 
-        <!-- Adicionar mais produtos  -->
+
 
     </div>
 
