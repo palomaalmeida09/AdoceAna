@@ -60,3 +60,7 @@ def index(request):
 @login_required(login_url="usuarios:login")
 def catalogo(request):
     return render(request, 'catalogo.html')
+
+#@login_required(login_url="usuarios:login")
+def cad_produto(request):
+    return render(request, 'cad_produto')
