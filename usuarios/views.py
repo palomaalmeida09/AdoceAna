@@ -61,6 +61,10 @@ def index(request):
 def catalogo(request):
     return render(request, 'catalogo.html')
 
-#@login_required(login_url="usuarios:login")
+@login_required(login_url="usuarios:cad_produto")
 def cad_produto(request):
-    return render(request, 'cad_produto')
+    return render(request, 'cad_produto.html')
+
+@login_required(login_url="usuarios:carrinho")
+def carrinho(request):
+    return render(request, 'carrinho')
