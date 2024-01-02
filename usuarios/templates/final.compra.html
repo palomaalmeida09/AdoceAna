@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed; /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 300px;
+            background-color: #E5D69D;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #656A41(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #656A41;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #656A41;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #656A41;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #656A41;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #656A41;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Finalizar Compra</h1>
+
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function finalizarCompra() {
+        // Simulação de lógica de finalização da compra
+        var produto = {
+            nome: "Produto Exemplo",
+            estoque: 5,
+            preco: 50.00,
+            quantidade: 2
+        };
+
+        var totalPagar = produto.preco * produto.quantidade;
+
+        if (produto.estoque >= produto.quantidade) {
+            // Atualizar estoque
+            produto.estoque -= produto.quantidade;
+            document.getElementById("result").innerHTML = '<p class="success">Compra finalizada com sucesso. Total a pagar: R$ ' + totalPagar.toFixed(2) + '</p>';
+        } else {
+            document.getElementById("result").innerHTML = '<p class="error">Não há estoque disponível para o produto selecionado.</p>';
+        }
+    }
+</script>
+
+</body>
+</html>

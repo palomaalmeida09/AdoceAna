@@ -21,6 +21,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("usuarios.urls")), 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 #Using the URLconf defined in adoceana.urls, Django tried these URL patterns, in this order:admin/auth/^static/(?P<path>.*)$The empty path didn’t match any of these.
