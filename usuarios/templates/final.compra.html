@@ -19,7 +19,7 @@
 
         .container {
             max-width: 600px;
-            margin: 180px auto; /* Aumentei a margem superior */
+            margin: 180px auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -31,13 +31,23 @@
             color: #656A41;
         }
 
-        .cart-items {
-            margin-bottom: 20px;
-        }
-
         .item {
             border-bottom: 1px solid #ddd;
             padding: 10px 0;
+        }
+
+        #quantidade-container {
+            text-align: center;
+        }
+
+        #quantidade-btns button {
+            font-size: 18px;
+            padding: 5px 10px;
+            background-color: #E5D69D;
+            color: #656A41;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .total {
@@ -62,11 +72,6 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        .system-messages {
-            margin-top: 20px;
-            color: green;
         }
 
         form {
@@ -100,17 +105,18 @@
     <div class="container">
         <h1>Finalizar Compra</h1>
 
-        <div class="cart-items">
-            <div class="item">
-                <span>Copudim</span>
-                <span>1</span>
-                <span>Preço unitário: R$ 14,00</span>
+        <div class="item">
+            <span>Copudim</span>
+            <div id="quantidade-container">
+                <button onclick="diminuirQuantidade()">-</button>
+                <span id="quantidade">1</span>
+                <button onclick="aumentarQuantidade()">+</button>
             </div>
-
+            <span>Preço unitário: R$ 14,00</span>
         </div>
 
         <div class="total">
-            <span>Total a Pagar: R$ 14,00</span>
+            <span>Total a Pagar: R$ <span id="total">14,00</span></span>
         </div>
 
         <form>
@@ -156,55 +162,87 @@
                 <button onclick="gerarQrCode()">Gerar QR Code</button>
                 <div id="qrcode"></div>
             </div>
-        
-            <script>
-                function gerarQrCode() {
-                    var chavePix = document.getElementById("chavePix").value;
-                    var qrcode = new QRCode(document.getElementById("qrcode"), {
-                        text: "chavepix:" + chavePix,
-                        width: 128,
-                        height: 128
-                    });
-                }
-            </script>
 
             <div class="options">
-                <button class="confirm-btn">Confirmar Compra</button>
-                <button class="back-btn">Voltar para o Carrinho</button>
+                <!-- Adicionado o evento onclick para chamar a função confirmarCompra() -->
+                <button class="confirm-btn" onclick="confirmarCompra()">Confirmar Compra</button>
+                <button class="back-btn" onclick="voltarParaCatalogo()">Voltar para o Catálogo</button>
                 <button class="cancel-btn">Cancelar Compra</button>
             </div>
         </form>
 
+        <script>
+            // Funções para manipular a quantidade do produto
+            function aumentarQuantidade() {
+                var quantidadeElemento = document.getElementById("quantidade");
+                var quantidadeAtual = parseInt(quantidadeElemento.innerText);
+                quantidadeElemento.innerText = quantidadeAtual + 1;
+                atualizarTotal();
+            }
+
+            function diminuirQuantidade() {
+                var quantidadeElemento = document.getElementById("quantidade");
+                var quantidadeAtual = parseInt(quantidadeElemento.innerText);
+
+                // Certifique-se de que a quantidade não seja menor que 1
+                if (quantidadeAtual > 1) {
+                    quantidadeElemento.innerText = quantidadeAtual - 1;
+                    atualizarTotal();
+                }
+            }
+
+            // Função para atualizar o total com base na quantidade
+            function atualizarTotal() {
+                var quantidade = parseInt(document.getElementById("quantidade").innerText);
+                var precoUnitario = 14.00; // Preço unitário do produto
+                var total = quantidade * precoUnitario;
+                document.getElementById("total").innerText = total.toFixed(2); // Formatando para duas casas decimais
+            }
+
+            // Função para mostrar os campos de pagamento correspondentes
+            function mostrarCamposPagamento() {
+                var formaPagamento = document.getElementById("formaPagamento");
+                var camposCartaoCredito = document.querySelector(".cartao-credito");
+                var camposCartaoDebito = document.querySelector(".cartao-debito");
+                var camposPix = document.querySelector(".pix");
+
+                // Oculta todos os campos por padrão
+                camposCartaoCredito.style.display = "none";
+                camposCartaoDebito.style.display = "none";
+                camposPix.style.display = "none";
+
+                // Mostra os campos correspondentes à forma de pagamento selecionada
+                if (formaPagamento.value === "credito") {
+                    camposCartaoCredito.style.display = "block";
+                } else if (formaPagamento.value === "debito") {
+                    camposCartaoDebito.style.display = "block";
+                } else if (formaPagamento.value === "pix") {
+                    camposPix.style.display = "block";
+                }
+            }
+
+            // Função para gerar QR Code
+            function gerarQrCode() {
+                var chavePix = document.getElementById("chavePix").value;
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: "chavepix:" + chavePix,
+                    width: 128,
+                    height: 128
+                });
+            }
+
+            // Função para exibir o alerta ao confirmar a compra
+            function confirmarCompra() {
+                alert("Sua compra foi solicitada com sucesso!");
+            }
+
+            // Função para voltar para a página do catálogo
+            function voltarParaCatalogo() {
+                // Redireciona para a página "catalogo.html"
+                window.location.href = 'catalogo.html';
+    }
+        </script>
     </div>
-
-    <script>
-        function mostrarCamposPagamento() {
-            var formaPagamento = document.getElementById("formaPagamento");
-            var camposCartaoCredito = document.querySelector(".cartao-credito");
-            var camposCartaoDebito = document.querySelector(".cartao-debito");
-            var camposPix = document.querySelector(".pix");
-
-            // Oculta todos os campos por padrão
-            camposCartaoCredito.style.display = "none";
-            camposCartaoDebito.style.display = "none";
-            camposPix.style.display = "none";
-
-            // Se a forma de pagamento for "Cartão de Crédito", mostra os campos de cartão de crédito
-            if (formaPagamento.value === "credito") {
-                camposCartaoCredito.style.display = "block";
-            }
-
-            // Se a forma de pagamento for "Cartão de Débito", mostra os campos de cartão de débito
-            if (formaPagamento.value === "debito") {
-                camposCartaoDebito.style.display = "block";
-            }
-
-            // Se a forma de pagamento for "Pix", mostra os campos de Pix
-            if (formaPagamento.value === "pix") {
-                camposPix.style.display = "block";
-            }
-        }
-    </script>
 </body>
 
 </html>
