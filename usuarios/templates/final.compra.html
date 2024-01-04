@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -10,7 +12,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url("{%static 'imagens/tela-de-fundo.jpg' %}") center center fixed;
+            background: url("{%static 'imagens/tela-de-fundo.jpg'%}") center center fixed;
             background-size: cover;
             position: relative;
         }
@@ -100,20 +102,15 @@
 
         <div class="cart-items">
             <div class="item">
-                <span>Produto 1</span>
-                <span>Quantidade: 2</span>
-                <span>Preço unitário: R$ 25,00</span>
+                <span>Copudim</span>
+                <span>1</span>
+                <span>Preço unitário: R$ 14,00</span>
             </div>
 
-            <div class="item">
-                <span>Produto 2</span>
-                <span>Quantidade: 1</span>
-                <span>Preço unitário: R$ 30,00</span>
-            </div>
         </div>
 
         <div class="total">
-            <span>Total a Pagar: R$ 80,00</span>
+            <span>Total a Pagar: R$ 14,00</span>
         </div>
 
         <form>

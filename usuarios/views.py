@@ -68,4 +68,7 @@ def cad_produto(request):
 
 def comprar(request, id):
 
-    return render(request, 'usuarios/final.compra.html', {'produto_id': id})
+    return render(request, 'final.compra.html', {'produto_id': id})
+
+def final_compra(request, produto_id):
+    return render(request, 'usuarios/final.compra.html')
