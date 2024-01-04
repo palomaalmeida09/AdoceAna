@@ -32,13 +32,14 @@
             position: relative;
             z-index: 1; /* Produtos estejam acima do plano de fundo */
             display: flex;
+            margin-bottom: 60px;
             flex-wrap: wrap; /* Permite que os produtos se movam para a próxima linha em telas menores */
             justify-content: space-around; /* Distribui uniformemente as divs */
         }
 
         .product {
-            width: 30%;
-            margin: 2%;
+            width: 20%;
+            margin: 1%;
             background-color: #E5D69D;
             padding: 1em;
             box-sizing: border-box;
@@ -102,7 +103,7 @@
         <h1>Catálogo de Produtos</h1>
         <!-- Ícone do carrinho -->
         <div class="cart-icon" onclick="location.href='carrinho.html'">&#128722;</div>
-        <button class="=product-button" onclick="location.href='cad.produto.html'">Cadastro de Produto</button>
+        <button class="=product-button" onclick="location.href='cad_produto.html'">Cadastro de Produto</button>
     </header>
 
     <div class="container">
@@ -116,6 +117,8 @@
         </div>
         {%endfor%}
     </div>
+
+    <div style="height: 60px;"></div>
 
     <footer>
         <p>&copy; 2023 Adoce Ana</p>

@@ -64,8 +64,8 @@ def catalogo(request):
 #@login_required(login_url="usuarios:login")
 def cad_produto(request):
 
-    return render(request, 'cad_produto')
+    return render(request, 'cad_produto.html')
 
 def comprar(request, id):
 
-    return render(request, 'usuarios/final.compra.html')
+    return render(request, 'usuarios/final.compra.html', {'produto_id': id})

@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url("{% static 'imagens/tela-de-fundo.jpg' %}") center center fixed;
+            background: url("{%static 'imagens/tela-de-fundo.jpg' %}") center center fixed;
             background-size: cover;
             position: relative;
         }
@@ -129,10 +129,8 @@
                 <option value="debito">Cartão de Débito</option>
                 <option value="pix">Pix</option>
                 <option value="boleto">Boleto Bancário</option>
-                <!-- Adicione mais opções conforme necessário -->
             </select>
 
-            <!-- Campos de cartão de crédito com a classe "cartao-credito" para ocultar por padrão -->
             <div class="cartao-credito">
                 <label for="numeroCartao">Número do Cartão de Crédito:</label>
                 <input type="text" id="numeroCartao" name="numeroCartao">
@@ -144,7 +142,6 @@
                 <input type="text" id="cvv" name="cvv">
             </div>
 
-            <!-- Campos de cartão de débito com a classe "cartao-debito" para ocultar por padrão -->
             <div class="cartao-debito">
                 <label for="numeroCartaoDebito">Número do Cartão de Débito:</label>
                 <input type="text" id="numeroCartaoDebito" name="numeroCartaoDebito">
@@ -156,7 +153,6 @@
                 <input type="text" id="cvvDebito" name="cvvDebito">
             </div>
 
-            <!-- Campos de Pix com a classe "pix" para ocultar por padrão -->
             <div class="pix">
                 <label for="chavePix">Chave Pix:</label>
                 <input type="text" id="chavePix" name="chavePix">
