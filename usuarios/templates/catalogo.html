@@ -58,20 +58,27 @@
             margin-top: 0;
         }
 
-        .product-button {
+        .product-button,
+        .product a,
+        .product-button-cadastro {
             font-size: 16px;
-            color:#656A41;
-            background-color: #E5D69D;
+            color:#fff;
+            background-color: #656A41;
             border: none;
             padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
             margin-left: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
         }
 
-        .product-button:hover{
-            background-color: #656A41;
-            color: #fff;
+        .product-button:hover,
+        .product a:hover,
+        .product-button-cadastro {
+            background-color: #E5D69D;
+            color: #656A41;
         }
 
         footer {
